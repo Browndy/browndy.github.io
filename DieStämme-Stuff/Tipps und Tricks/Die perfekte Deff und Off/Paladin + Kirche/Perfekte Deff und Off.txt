@@ -1,0 +1,348 @@
+[spoiler=Copyright]© Jendrik P. aka JeeyPi aka Browndy[/spoiler]
+[b][size=12]Wie sieht die perfekte Deff aus?[/size][/b]
+
+Um diese Frage zu beantworten müssen wir uns zunächst überlegen, was wir von unserer Deff erwarten. Grundsätzlich gibt es 3 mögliche Ziele, die wir bei der Deff-Rekrutierung verfolgen können:
+
+[quote=][size=9][b][i]~Ziel1[/i][/b]
+Unsere Deff soll möglichst schnell rekrutiert werden, aber trotzdem effektiv sein
+
+[b][i]~Ziel2[/i][/b]
+Unsere Deff soll möglichst effizient gegnerische Truppen besiegen
+
+[b][i]~Ziel3[/i][/b]
+Unsere Deff soll das Maximum aus den vorhandenen Bauernhofplätzen rausholen[/size]
+[/quote]
+Diese Ziele schließen sich grundsätzlich gegenseitig aus. Daher werden wir uns jeweils auf ein Ziel konzentrieren.
+
+[b][i]~Ziel1[/i][/b] lässt sich relativ einfach erfüllen. Um unsere Deff möglichst schnell zu rekrutieren, müssen wir sowohl im Stall als auch in der Kaserne rekrutieren. Die einzige Deff-Einheit im Stall stellt die Schwere Kavallerie dar. Ihre Verteidigungswerte betragen (200/80/180). Sie ergänzt sich somit perfekt mit den Speerträgern aus der Kaserne. Die Verteidigungswerte der Speerträger betragen (15/45/20). Wenn wir weiter davon ausgehen, dass uns 21000 Bauernhofplätze zur Verfügung stehen, so ergibt sich folgende Deff:
+
+[quote][size=9][b][i]~SKav-Deff[/i][/b]
+[unit]spear[/unit]9252 [unit]heavy[/unit]1958  [building]farm[/building]21000 
+[i]Rekrutierungszeit: ca. 10 Tage 7 Std.[/i][/size]
+[/quote]
+Möchten wir nun die Rekrutierungszeit noch weiter verringern, so können wir dies auf Kosten unserer Effektivität tun, indem wir zusätzlich Katapulte in der Werkstatt bauen.  Dabei ergibt sich folgende Deff:
+
+[quote][size=9][b][i]~SKav-Kata-Deff[/i][/b]
+[unit]spear[/unit]7238 [unit]heavy[/unit]1531 [unit]catapult[/unit]572  [building]farm[/building]21000 
+[i]Rekrutierungszeit: ca. 6 Tage 16 Std.[/i][/size]
+[/quote]
+Diese Art der Deff sollten wir allerdings nur in äußerst prekären Situationen rekrutieren. Zudem sollte das Rekrutieren von sowohl der [b][i]~SKav-Deff[/i][/b] als auch der [b][i]~SKav-Kata-Deff[/i][/b] auf dieser Welt vermieden werden, da die Schwere Kavallerie und die Katapulte in der Defensive nicht vom Paladin profitieren und außerdem sehr teuer sind.
+
+Um [b][i]~Ziel2[/i][/b] zu erfüllen gucken wir uns zunächst die möglichen Deff-Einheiten an, die uns zur Verfügung stehen und berechnen deren Effizienz. Dafür teilen wir den gesamten Verteidigungswert durch die gesamten Rohstoffkosten:
+
+[quote][table]
+[**]Einheit[||]Deffwerte[||]Kosten[||]Effizienz[/**]
+[*][unit]spear[/unit][|](15/45/20)[|]80[|]1
+[*][unit]sword[/unit][|](50/15/40)[|]130[|]0.808
+[*][unit]archer[/unit][|](50/40/5)[|]190[|]0.5
+[*][unit]heavy[/unit][|](200/80/180)[|]950[|]0.484
+[*][unit]catapult[/unit][|](100/50/100)[|]820[|]0.244
+[/table][/quote]
+Zunächst rekrutieren wir Speerträger, da diese am effizientesten sind. Da sie jedoch nur einen geringen Verteidigungswert gegen Infanterie haben, müssen wir sie mit einer Einheit ergänzen, die gut gegen Kavallerie ist. Hierfür kommen sowohl die Schwertträger, als auch die Schwere Kavallerie in Frage. Unsere Wahl fällt auf die Schwertträger, aufgrund deren deutlich höherer Effizienz.
+
+Nun stellt sich die Frage, in welchem Verhältnis wir die beiden Einheiten rekrutieren sollen. Um diese Frage beantworten zu können, müssen wir wissen, gegen welche Off unsere Deff verteidigen soll. Dafür stellen wir zunächst einige Annahmen auf:
+
+[quote=][size=9][b][i]~Annahme1[/i][/b]
+Unsere Gegner rekrutieren ihre Off so, dass die Rekrutierungszeit in Kaserne und Stall gleich sind
+
+[b][i]~Annahme2[/i][/b]
+Unsere Gegner passen sich unseren Deffs an
+
+[b][i]~Annahme3[/i][/b]
+Die Offs bestehen aus Axtkämpfern, Leichte Kavallerie, Berittene Bogenschützen verteilt auf 19000 Bauernhofplätze und zusätzlich 320 Rammböcken[/size]
+[/quote]
+Unter Berücksichtigung der Annahmen stellen wir folgende Offs auf:
+
+[quote][size=9][b][i]~LKav-Off[/i][/b]
+[unit]axe[/unit]5952 [unit]light[/unit]3262 [unit]ram[/unit]320 [building]farm[/building]20600 
+[i]Rekrutierungszeit: ca. 7 Tage 1 Std.[/i]
+
+[b][i]~Standard-Off[/i][/b]
+[unit]axe[/unit]6109 [unit]light[/unit]2609 [unit]marcher[/unit]491 [unit]ram[/unit]320 [building]farm[/building]20600 
+[i]Rekrutierungszeit: ca. 7 Tage 6 Std.[/i]
+
+[b][i]~BBogen-Off[/i][/b]
+[unit]axe[/unit]6720 [unit]marcher[/unit]2456 [unit]ram[/unit]320 [building]farm[/building]20600 
+[i]Rekrutierungszeit: ca. 7 Tage 23 Std.[/i][/size]
+[/quote]
+Zur weiteren Berechnung gehen wir davon aus, dass die Wahrscheinlichkeit dafür, dass die Standard-Off von den Gegnern rekrutiert wird doppelt so hoch ist, wie die Wahrscheinlichkeit dafür, dass eine der beiden anderen Offs rekrutiert wird.  Nun ergibt sich die optimale Deff unter den gegebenen Rahmenbedingungen zu:
+
+[quote][size=9][b][i]~Dual-Deff[/i][/b]
+[unit]spear[/unit]10155 [unit]sword[/unit]10845  [building]farm[/building]21000 
+[i]Rekrutierungszeit: ca. 23 Tage 22 Std.[/i][/size]
+[/quote]
+Da das Verhältnis relativ nah an 1:1 ist, kann alternativ auch folgende Deff rekrutiert werden:
+
+[quote][size=9][b][i]~Standard-Dual-Deff[/i][/b]
+[unit]spear[/unit]10500 [unit]sword[/unit]10500  [building]farm[/building]21000 
+[i]Rekrutierungszeit: ca. 23 Tage 19 Std.[/i][/size]
+[/quote]
+Durch unsere Vorarbeit können wir nun auch [b][i]~Ziel3[/i][/b] angehen. Wir nehmen weiter an, dass die Wahrscheinlichkeit für die Standard-Off doppelt so hoch ist. Unter der Verwendung der Einheiten Speerträger, Schwertkämpfer und Bogenschützen erhalten wir somit unsere maximal effektive Deff:
+
+[quote][size=9][b][i]~Trial-Deff[/i][/b]
+[unit]spear[/unit]5480 [unit]sword[/unit]8720 [unit]archer[/unit]6800 [building]farm[/building]21000 
+[i]Rekrutierungszeit: ca. 27 Tage 19 Std.[/i][/size]
+[/quote]
+Unsere Deff muss natürlich nicht exakt so aussehen, sollte aber zumindest in die Richtung gehen.
+
+Nun eröffnet sich aber die Frage, ob man von Anfang an Truppen in diesem Verhältnis rekrutieren sollte. Um die Frage zu beantworten müssen wir herausfinden, welche Truppenzusammenstellung am zeiteffektivsten ist. Dabei konzentrieren wir uns auf die [b][i]~Dual-Deff[/i][/b] und die [b][i]~Trial-Deff[/i][/b]. Die anderen Deffs sind für uns uninteressant, da wir weder Schwere Kavallerie noch Katapulte rekrutieren möchten. Um das Problem zu lösen berechnen wir zunächst wie viel [b][i]~Dual-Deff[/i][/b] in die [b][i]~Trial-Deff[/i][/b] passt:
+
+[quote][size=9][i]swordTrial = 10845 * 5480⁄10155
+swordTrial = 5852[/i][/size]
+[/quote]
+Wenn wir nun die Rekrutierungszeit gleichsetzen ergeben sich folgende Deffs:
+
+[quote][size=9][b][i]~Dual-Deff*[/i][/b]
+[unit]spear[/unit]5480 [unit]sword[/unit]5852  [building]farm[/building]11332 
+[i]Rekrutierungszeit: ca. 12 Tage 22 Std.[/i]
+
+[b][i]~Trial-Deff*[/i][/b]
+[unit]spear[/unit]2548 [unit]sword[/unit]4053 [unit]archer[/unit]3161 [building]farm[/building]9762 
+[i]Rekrutierungszeit: ca. 12 Tage 22 Std.[/i][/size]
+[/quote]
+Im nächsten Schritt lassen wir beide Deffs gegen die oben definierten Offs antreten:
+
+[quote=][b][i]~LKav-Off[/i][/b] vs. [b][i]~Dual-Deff*[/i][/b] u. [b][i]~Trial-Deff*[/i][/b]
+[table]
+[**][unit]axe[/unit][||][unit]light[/unit][||][unit]marcher[/unit][||][unit]ram[/unit][||][||][unit]axe[/unit][||][unit]light[/unit][||][unit]marcher[/unit][||][unit]ram[/unit][/**]
+[*]5952[|]3262[|]0[|]320[|][|]5952[|]3262[|]0[|]320
+[*]4373[|]2020[|]0[|]235[|][|]4801[|]1733[|]0[|]258
+[/table]
+[b][i]~Standard-Off[/i][/b] vs. [b][i]~Dual-Deff*[/i][/b] u. [b][i]~Trial-Deff*[/i][/b]
+[table]
+[**][unit]axe[/unit][||][unit]light[/unit][||][unit]marcher[/unit][||][unit]ram[/unit][||][||][unit]axe[/unit][||][unit]light[/unit][||][unit]marcher[/unit][||][unit]ram[/unit][/**]
+[*]6109[|]2609[|]491[|]320[|][|]6109[|]2609[|]491[|]320
+[*]4696[|]1690[|]331[|]246[|][|]5156[|]1450[|]180[|]270
+[/table]
+[b][i]~BBogen-Off[/i][/b] vs. [b][i]~Dual-Deff*[/i][/b] u. [b][i]~Trial-Deff*[/i][/b]
+[table]
+[**][unit]axe[/unit][||][unit]light[/unit][||][unit]marcher[/unit][||][unit]ram[/unit][||][||][unit]axe[/unit][||][unit]light[/unit][||][unit]marcher[/unit][||][unit]ram[/unit][/**]
+[*]6720[|]0[|]2456[|]320[|][|]6720[|]0[|]2456[|]320
+[*]6287[|]0[|]2018[|]299[|][|]6720[|]0[|]1104[|]320
+[/table][/quote]
+Die [b][i]~LKav-Off[/i][/b] verliert gegen die [b][i]~Dual-Deff*[/i][/b] mehr Bauernhofplätze und gegen die [b][i]~Trial-Deff*[/i][/b] mehr Rohstoffe. 
+Die [b][i]~Standard-Off[/i][/b] verliert gegen die [b][i]~Dual-Deff*[/i][/b] mehr Bauernhofplätze und mehr Rohstoffe. 
+Die [b][i]~BBogen-Off[/i][/b] verliert gegen die [b][i]~Dual-Deff*[/i][/b] mehr Bauernhofplätze und mehr Rohstoffe. 
+
+Da die [b][i]~Dual-Deff*[/i][/b] sowohl gegen die [b][i]~Standard-Off[/i][/b], als auch gegen die [b][i]~BBogen-Off[/i][/b] eindeutig besser, gegen die [b][i]~LKav-Off[/i][/b] nicht eindeutig schlechter und deutlich günstiger ist, ist sie insgesamt zeiteffektiver sowie effizienter und sollte zunächst rekrutiert werden.
+
+[b][size=11]Zusammenfassung[/size][/b]
+
+Zusammenfassend können wir nun folgende Vorlagen aufstellen:
+
+[quote][size=9][b]Vorlage1: [i]~SKav-Deff[/i][/b]
+[unit]spear[/unit]9252 [unit]heavy[/unit]1958  [building]farm[/building]21000 
+[i]Rekrutierungszeit: ca. 10 Tage 7 Std.[/i]
+
+[b]Vorlage2: [i]~SKav-Kata-Deff[/i][/b]
+[unit]spear[/unit]7238 [unit]heavy[/unit]1531 [unit]catapult[/unit]572  [building]farm[/building]21000 
+[i]Rekrutierungszeit: ca. 6 Tage 16 Std.[/i]
+
+[b]Vorlage3: [i]~Dual-Deff[/i][/b]
+[unit]spear[/unit]10155 [unit]sword[/unit]10845  [building]farm[/building]21000 
+[i]Rekrutierungszeit: ca. 23 Tage 22 Std.[/i]
+
+[b]Vorlage4: [i]~Standard-Dual-Deff[/i][/b]
+[unit]spear[/unit]10500 [unit]sword[/unit]10500  [building]farm[/building]21000 
+[i]Rekrutierungszeit: ca. 23 Tage 19 Std.[/i]
+
+[b]Vorlage5: [i]~Trial-Deff1[/i][/b]
+[unit]spear[/unit]5480 [unit]sword[/unit]5852  [building]farm[/building]11332 
+[i]Rekrutierungszeit: ca. 12 Tage 22 Std.[/i]
+
+[b]Vorlage6: [i]~Trial-Deff2[/i][/b]
+[unit]spear[/unit]5480 [unit]sword[/unit]8720 [unit]archer[/unit]6800 [building]farm[/building]21000 
+[i]Rekrutierungszeit: ca. 27 Tage 19 Std.[/i][/size]
+[/quote]
+Stehen weniger/mehr Bauernhofplätze zur Verfügung, so müssen alle Einheiten mit einem gleichen Prozentsatz multipliziert werden (z.B. [i]20000⁄21000[/i], wobei 20000 = neue Bauernhofplätze). Zudem sollten noch Späher, sowie ggf. Rammböcke und Katapulte für Fakes/Laufzeiten ergänzt werden. 
+
+Grundsätzlich sollten wir versuchen uns auf die [b][i]~Trial-Deff[/i][/b] zu beschränken und nur im Notfall auf die [b][i]~SKav-Deff[/i][/b] oder die [b][i]~SKav-Kata-Deff[/i][/b] zurückgreifen. Weiterhin sollte die [b][i]~Dual-Deff[/i][/b] nur bei Rohstoffmangel rekrutiert werden.
+
+[b][size=12]Wie sieht die perfekte Off aus?[/size][/b]
+
+Um diese Frage zu beantworten definieren wir zunächst die Ziele die wir mit unserer Off verfolgen:
+
+[quote=][size=9][b][i]~Ziel1[/i][/b]
+Unsere Off soll möglichst viele Truppen vernichten
+
+[b][i]~Ziel2[/i][/b]
+Unsere Off soll möglichst viel Schaden am Wall anrichten[/size]
+[/quote]
+Außerdem stellen wir noch eine Bedingung für unsere Off auf:
+
+[quote][size=9][b][i]~Bedingung1[/i][/b]
+Unsere Offs sollen gleichzeitig fertig werden[/size]
+[/quote]
+[b][i]~Ziel1[/i][/b] und [b][i]~Ziel2[/i][/b] schließen sich gegenseitig aus, daher werden wir uns zunächst auf [b][i]~Ziel1[/i][/b] konzentrieren.
+
+Grundsätzlich sind Offs flexibler als Deffs, da sie wesentlich schneller rekrutiert werden können. Wir stellen im Folgenden also eine ganze Reihe an Offs auf und überprüfen deren Effektivität. Um [b][i]~Bedingung1[/i][/b] zu erfüllen müssen wir während der gesamten Rekrutierungszeit sowohl in der Kaserne als auch im Stall rekrutieren. Weiter gehen wir davon aus, dass uns 20600 Bauernhofplätze zur Verfügung stehen und 1600 eben davon für 320 Rammböcke verwendet werden.
+
+[quote][size=9][b]Es müssen mindestens 320 Rammböcke rekrutiert werden, da wir nicht bei jeder Off einen Paladin mit "Rammen"-Skill mitschicken werden![/b][/size]
+[/quote]
+In der Kaserne stehen uns nur die Axtkämpfer als mögliche Offensiveinheit zur Verfügung. Im Stall die Leichte Kavallerie und die Berittenen Bogenschützen.
+
+Unter diesen Rahmenbedingungen ergeben sich als Extremwerte die [b][i]~LKav-Off[/i][/b] und die [b][i]~BBogen-Off[/i][/b], die wir bereits im Deff-Teil definiert haben:
+
+[quote][size=9][b][i]~LKav-Off[/i][/b]
+[unit]axe[/unit]5952 [unit]light[/unit]3262 [unit]ram[/unit]320 [building]farm[/building]20600 
+[i]Rekrutierungszeit: ca. 7 Tage 1 Std.[/i]
+
+[b][i]~BBogen-Off[/i][/b]
+[unit]axe[/unit]6720 [unit]marcher[/unit]2456 [unit]ram[/unit]320 [building]farm[/building]20600 
+[i]Rekrutierungszeit: ca. 7 Tage 23 Std.[/i][/size]
+[/quote]
+Um alle möglichen Einheitenkombinationen berechnen zu können definieren wir zunächst die Differenz [i]d[/i] zwischen der [b][i]~BBogen-Off[/i][/b] und der [b][i]~LKav-Off[/i][/b]
+
+[quote][i]d = (6720/0/2456/320) - (5962/3262/0/320) 
+d = (758/-3262/2456/0)
+d = (758/-3262/2456)[/i]
+[/quote]
+Wenn wir nun zu der [b][i]~LKav-Off[/i][/b] [i]d[/i] multipliziert mit einem Faktor [i]f[/i] ([i]0 ≤ f ≤ 1[/i]) addieren, so erhalten wir alle möglichen Offs die [b][i]~Bedingung1[/i][/b] unter unseren Rahmenbedingungen erfüllen.
+
+Hier zunächst einige Beispiele:
+
+[quote][table]
+[**][i]f[/i][||][unit]axe[/unit][||][unit]light[/unit][||][unit]marcher[/unit][||][unit]ram[/unit][/**]
+[*]0[|]5952[|]3262[|]0[|]320
+[*]0.1[|]6026[|]2936[|]246[|]320
+[*]0.2[|]6109[|]2609[|]491[|]320
+[*]0.3[|]6183[|]2283[|]737[|]320
+[*]0.4[|]6262[|]1957[|]982[|]320
+[*]0.5[|]6336[|]1631[|]1228[|]320
+[*]0.6[|]6410[|]1305[|]1474[|]320
+[*]0.7[|]6489[|]979[|]1719[|]320
+[*]0.8[|]6567[|]652[|]1965[|]320
+[*]0.9[|]6646[|]326[|]2210[|]320
+[*]1[|]6720[|]0[|]2456[|]320
+[/table][/quote]
+Für [i]f = 0[/i] erhalten wir die [b][i]~LKav-Off[/i][/b], für [i]f = 1[/i] die [b][i]~BBogen-Off[/i][/b] und für [i]f = 0.2[/i] die [b][i]~Standard-Off[/i][/b]
+
+Um nun die Effektivität der jeweiligen Offs zu überprüfen suchen wir für jede Off die Deff, die am wenigsten Verluste erleidet, wenn sie gegen die Off kämpfen muss. Wir erweitern die Tabelle um die jeweiligen Deffs, die überlebenden Truppen und die Summe ebendieser. Zusätzlich lassen wir die Offs zur Kontrolle noch gegen unsere [b][i]~Trial-Deff[/i][/b] antreten:
+
+[quote][table]
+[**][i]f[/i][||][unit]axe[/unit][||][unit]light[/unit][||][unit]marcher[/unit][||][unit]ram[/unit][||][||][unit]spear[/unit][||][unit]sword[/unit][||][unit]archer[/unit][||][||][unit]spear[/unit][||][unit]sword[/unit][||][unit]archer[/unit][||]∑[||][||][||][unit]spear[/unit][||][unit]sword[/unit][||][unit]archer[/unit][||]∑[/**]
+[*]0[|]5952[|]3262[|]0[|]320[|][|]0[|]0[|]21000[|][|]0[|]0[|]13346[|]13346[|][|][|]2870[|]4567[|]3562[|]10999
+[*]0.1[|]6026[|]2936[|]246[|]320[|][|]3185[|]1210[|]16605[|][|]1801[|]685[|]9389[|]11875[|][|][|]2870[|]4566[|]3561[|]10997
+[*]0.2[|]6109[|]2609[|]491[|]320[|][|]3750[|]3540[|]13710[|][|]1954[|]1844[|]7141[|]10939[|][|][|]2868[|]4564[|]3559[|]10991
+[*]0.3[|]6183[|]2283[|]737[|]320[|][|]3510[|]5345[|]12145[|][|]1729[|]2632[|]5980[|]10341[|][|][|]2867[|]4562[|]3557[|]10986
+[*]0.4[|]6262[|]1957[|]982[|]320[|][|]5425[|]9780[|]5795[|][|]2599[|]4685[|]2776[|]10060[|][|][|]2865[|]4558[|]3555[|]10978
+[*]0.5[|]6336[|]1631[|]1228[|]320[|][|]5115[|]11395[|]4490[|][|]2505[|]5580[|]2199[|]10284[|][|][|]2862[|]4554[|]3551[|]10967
+[*]0.6[|]6410[|]1305[|]1474[|]320[|][|]4730[|]12980[|]3290[|][|]2408[|]6607[|]1675[|]10690[|][|][|]2849[|]4549[|]3548[|]10956
+[*]0.7[|]6489[|]979[|]1719[|]320[|][|]4100[|]14865[|]2035[|][|]2204[|]7990[|]1094[|]11288[|][|][|]2855[|]4543[|]3543[|]10941
+[*]0.8[|]6567[|]652[|]1965[|]320[|][|]80[|]20695[|]225[|][|]48[|]12265[|]134[|]12447[|][|][|]2851[|]4537[|]3538[|]10926
+[*]0.9[|]6646[|]326[|]2210[|]320[|][|]0[|]21000[|]0[|][|]0[|]13872[|]0[|]13872[|][|][|]2846[|]4529[|]3532[|]10907
+[*]1[|]6720[|]0[|]2456[|]320[|][|]0[|]21000[|]0[|][|]0[|]15213[|]0[|]15213[|][|][|]2841[|]4521[|]3526[|]10888
+[/table][/quote]
+Zunächst halten wir fest, dass wir für [i]f = 0.4[/i] das beste Ergebnis erhalten und dass unsere [b][i]~Trial-Deff[/i][/b] ihre Aufgabe, gegen alle möglichen Offs gewappnet zu sein, sehr gut meistert. 
+
+Weiter können wir feststellen, dass Offs die hauptsächlich Leichte Kavallerie oder Berittene Bogenschützen beinhalten sehr schwach gegen stark spezialisierte Deffs sind, wobei dieser Effekt bei den Berittenen Bogenschützen noch stärker zu sehen ist. Dies ist darauf zurückzuführen, dass Bogenschützen extrem schwach gegen Berittene Bogenschützen sind und daher schon wenige Berittene Bogenschützen genügen, um eine große Menge Bogenschützen zu vernichten.
+
+Außerdem können wir erkennen, dass wir grundsätzlich davon absehen sollten die [b][i]~BBogen-Off[/i][/b] zu rekrutieren, da diese extrem schwach gegen Schwertkämpfer ist, was wiederum bedeutet, dass sie auch sehr schwach gegen die Schwere Kavallerie ist, welche ähnliche Werte hat. Diese werden oft aufgrund der kurzen Laufzeit zu angegriffene Dörfer geschickt, was fatale Folgen bedeuten würde. Gleiches gilt für Offs mit [i]f ≥ 0.8[/i].
+
+Somit können wir [b][i]~Ziel1[/i][/b] zufriedenstellend lösen:
+
+Wenn wir keine Information haben, wie die Deffs vom Gegner aussehen, so sollten wir Offs mit [i]0.2 ≤ f ≤ 0.4[/i] rekrutieren.
+Wenn wir wissen, dass der Gegner sehr viele Schwertkämpfer/Schwere Kavallerie rekrutiert, sollten wir Offs mit [i]0 ≤ f ≤ 0.2[/i] rekrutieren.
+Wenn wir wiederum wissen, dass der Gegner sehr viele Bogenschützen rekrutiert, sollten wir Offs mit [i]0.4 ≤ f ≤ 0.6[/i] rekrutieren.
+
+Als nächstes widmen wir uns [b][i]~Ziel2[/i][/b]. Hierbei geht es um sogenannte Wallbreaker-Offs. Zunächst treffen wir eine Annahme bezüglich der Nutzung von Wallbreaker-Offs:
+
+[quote][size=9][b][i]~Annahme1[/i][/b]
+Wir verwenden Wallbreaker-Offs nur gegen "Bunker", also Dörfer die von sehr vielen Einheiten verteidigt werden[/size]
+[/quote]
+Daraus folgt, dass unsere Wallbreaker-Off komplett vernichtet werden wird. Die Formel zur Berechnung des Schadens am Wall, wenn alle Angreifer sterben, lautet:
+
+[quote][size=9][i]wallNeu = wallAlt - (angriffRam * v.rateVer) ⁄ (8 * (1.09 ^ wallAlt))
+mit
+wallAlt: Stufe des Walls vor dem Angriff
+wallNeu: Stufe des Walls nach dem Angriff
+angriffRam: Gesamtangriffskraft der angreifenden Rammböcke
+v.rateVer: Verlustrate des Verteidigers[/i][/size]
+[/quote]
+Die Verlustrate des Verteidigers kann vereinfacht wie folgt berechnet werden:
+
+[quote][size=9][i]v.rateDef = (angriffAng ⁄ vertVer) ^ 1.5 
+mit
+v.rateDef: Verlustrate des Verteidigers
+angriffAng: Angriffskraft des Angreifers
+vertVer: Verteidigungswert des Verteidigers[/i][/size]
+[/quote]
+Somit können wir die optimale Anzahl an Rammböcken, unter der Voraussetzung, dass der Angriffswert sich zu den übrigen Bauernhofplätzen linear verhält, mit folgender Funktion berechnen:
+
+[quote][size=9][i]f(nRam) = ((((nBH - 5nRam) * angriffBH) + 2 * nRam) ^ 1.5) * nRam
+mit
+nRam: Anzahl an Rammböcken
+nBH: gesamte Anzahl an Bauernhofplätzen
+angriffBH: Angriffskraft pro Bauernhofplatz, der nicht für Rammböcke verwendet wird[/i][/size]
+[/quote]
+Das Maximum dieser Funktion ist die optimale Anzahl an Rammböcken. Für [i]nBH = 20600[/i], [i]angriffBH = 40[/i] (Axtkämpfer) ergibt sich bspw. [i]nRam* = 1665[/i].
+
+[b]Info:[/b] Die Berechnung ist nur für Axtkämpfer perfekt, liefert jedoch immer einen sehr guten Näherungswert.
+
+Wir verwenden als Grundlage für die optimale Wallbreaker-Off die [b][i]~Standard-Off[/i][/b]:
+
+[quote][size=9][b][i]~Opt-Standard-Wallbreaker-Off[/i][/b]
+[unit]axe[/unit]3946 [unit]light[/unit]1686 [unit]marcher[/unit]317 [unit]ram[/unit]1665 [building]farm[/building]20600 
+[i]Rekrutierungszeit: ca. 12 Tage 21 Std.[/i][/size]
+[/quote]
+Die Rekrutierungszeit der [b][i]~Opt-Standard-Wallbreaker-Off[/i][/b] liegt knapp unter der doppelten Rekrutierungszeit für unsere anderen Offs. Sie wäre somit bei jeder 2. Aktion einsatzbereit. Als nächstes stellen wir eine Wallbreaker-Off auf, die [b][i]~Bedingung1[/i][/b] erfüllt. Wir verwenden als Basis wieder die [b][i]~Standard-Off[/i][/b], aber die Rekrutierungszeit der [b][i]~Standard-Off[/i][/b] um sicherzustellen, dass [b][i]~Bedingung1[/i][/b] nicht verletzt wird:
+
+[quote][size=9][b][i]~Standard-Wallbreaker-Off[/i][/b]
+[unit]axe[/unit]5156 [unit]light[/unit]2201 [unit]marcher[/unit]414 [unit]ram[/unit]914 [building]farm[/building]20600 
+[i]Rekrutierungszeit: ca. 7 Tage 1 Std.[/i][/size]
+[/quote]
+Als nächstes überprüfen wir, ob es überhaupt sinnvoll ist, Wallbreaker-Offs zu verwenden. Dafür lassen wir beide gegen 4 verschiedene Bunker antreten:
+
+[quote][size=9][b][i]~Bunker1[/i][/b]
+[unit]spear[/unit]40000 [unit]sword[/unit]40000 [unit]archer[/unit]40000 [building]farm[/building]120000
+
+[b][i]~Bunker2[/i][/b]
+[unit]spear[/unit]60000 [unit]sword[/unit]60000 [unit]archer[/unit]60000 [building]farm[/building]180000
+
+[b][i]~Bunker3[/i][/b]
+[unit]spear[/unit]80000 [unit]sword[/unit]80000 [unit]archer[/unit]80000 [building]farm[/building]240000
+
+[b][i]~Bunker4[/i][/b]
+[unit]spear[/unit]120000 [unit]sword[/unit]120000 [unit]archer[/unit]120000 [building]farm[/building]360000[/size]
+[/quote]
+Dabei schicken wir jeweils pro 10000 Trial im Bunker eine Wallbreaker-Off, gefolgt von [b][i]~Standard-Offs[/i][/b] und zählen die Offs die insgesamt benötigt werden, um den Bunker zu knacken und vergleichen das Ergebnis mit nur [b][i]~Standard-Offs[/i][/b]:
+
+[table]
+[**]Bunker[||]~Opt-Standard-Wallbreaker-Off[||]~Standard-Wallbreaker-Off[||]~Standard-Off[/**]
+[*][b]~Bunker1[/b][|]15 (+4)[|]15[|]15
+[*][b]~Bunker2[/b][|]26 (+6)[|]25[|]29
+[*][b]~Bunker3[/b][|]37 (+8)[|]48[|]47
+[*][b]~Bunker4[/b][|]94 (+12)[|]92[|]88
+[/table]
+Es lässt sich festhalten, dass für [b][i]~Bunker1[/i][/b] keine Off einen Vorteil bietet. 
+Für [b][i]~Bunker2[/i][/b] bieten sowohl die [b][i]~Standard-Wallbreaker-Off[/i][/b] als auch die [b][i]~Opt-Standard-Wallbreaker-Off[/i][/b] einen kleinen Vorteil.
+Weiter bietet die [b][i]~Opt-Standard-Wallbreaker-Off[/i][/b] für [b][i]~Bunker3[/i][/b] einen großen Vorteil.
+Für [b][i]~Bunker4[/i][/b] sind die [b][i]~Opt-Standard-Wallbreaker-Off[/i][/b] und die [b][i]~Opt-Standard-Wallbreaker-Off[/i][/b] im Nachteil, da sie den Wall nicht herabsetzen können und weniger Offensivkraft besitzen.
+
+Die positiven Effekte der Wallbreaker-Offs können weiter leicht verstärkt werden, wenn wir davon ausgehen, dass wir bei ebendiesen einen Paladin mit dem "Rammen"-Skill mitschicken. Wir müssen allerdings auch bedenken, dass wir für jede [b][i]~Opt-Standard-Wallbreaker-Off[/i][/b] eine Off weniger zur Verfügung haben, da diese die doppelte Rekrutierungszeit besitzt. Wenn wir nun die Anzahl der benötigten Offs um die Anzahl der eingesetzen [b][i]~Opt-Standard-Wallbreaker-Off[/i][/b] erhöhen, so haben wir nur noch bei [b][i]~Bunker3[/i][/b] einen kleinen Vorteil und bei den restlichen Bunkern einen Nachteil.
+
+Insgesamt bieten die Wallbreaker-Offs also nur einen überschaubaren Vorteil und es besteht das Risiko, dass wir sogar mehr Offs benötigen um den Bunker zu knacken. Das Risiko für die [b][i]~Standard-Wallbreaker-Off[/i][/b] ist relativ gering, diese kann also bedenkenlos verwendet werden. Die [b][i]~Opt-Standard-Wallbreaker-Off[/i][/b] sollten wir nur dann einsetzen, wenn wir uns sehr sicher sind, wie groß der Bunker ist, den wir knacken wollen. Ansonsten hat sie sowohl bei kleinen bis mittleren als auch bei sehr großen Bunkern einen Nachteil.
+
+[b][size=11]Zusammenfassung[/size][/b]
+
+Wir sollten grundsätzlich versuchen unsere Offs auf den Gegner anzupassen, da sie wesentlich schneller rekrutiert werden können als Deffs. Wenn wir uns allerdings nicht anpassen wollen, können wir mit der [b][i]~Standard-Off[/i][/b] nur wenig falsch machen:
+
+[quote][size=9][b][i]Vorlage1: ~Standard-Off[/i][/b]
+[unit]axe[/unit]6109 [unit]light[/unit]2609 [unit]marcher[/unit]491 [unit]ram[/unit]320 [building]farm[/building]20600 
+[i]Rekrutierungszeit: ca. 7 Tage 6 Std.[/i][/size]
+[/quote]
+Stehen weniger/mehr Bauernhofplätze zur Verfügung, so müssen alle Einheiten, abgesehen von den Rammböcken, mit einem gleichen Prozentsatz multipliziert werden (z.B. 19000⁄19500, wobei 19000 = neue Bauernhofplätze). Zudem sollten noch Späher, sowie ggf. Schwere Kavallerie und Katapulte für Fakes/Laufzeiten ergänzt werden.
+
+Wallbreaker sind nur bedingt nützlich und wir sollten uns genau überlegen, ob und wo wir diese einsetzen wollen. Wenn wir nicht exakt wissen wie groß die Bunker sind die wir angreifen, sollten wir uns auf die [b][i]~Standard-Wallbreaker-Off[/i][/b] beschränken: 
+
+[quote][size=9][b][i]Vorlage2: ~Standard-Wallbreaker-Off[/i][/b]
+[unit]axe[/unit]5156 [unit]light[/unit]2201 [unit]marcher[/unit]414 [unit]ram[/unit]914 [building]farm[/building]20600 
+[i]Rekrutierungszeit: ca. 7 Tage 1 Std.[/i][/size]
+[/quote]
+Am wichtigsten ist, dass wir in jeder Off, die von keinem Paladin mit dem "Rammen"-Skill begleitet wird, 320 Rammböcke rekrutieren.
+
+[size=12][b]Fazit[/b][/size]
+
+Wie genau unsere Deffs/Offs aussehen ist Nebensache. Selbst die perfekte Deff/Off bietet uns meist nur einen kleinen Vorteil. Wesentlich wichtiger ist, dass wir sie zum richtigen Zeitpunkt an den richtigen Ort schicken.
+
+[url=https://browndy.github.io/DieStämme-Stuff/Tipps%20und%20Tricks/Die%20perfekte%20Deff%20und%20Off/Paladin%20+%20Kirche/Perfekte%20Deff%20und%20Off.txt]Permalink[/url]
