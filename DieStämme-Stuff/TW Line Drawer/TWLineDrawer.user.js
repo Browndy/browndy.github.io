@@ -6,8 +6,6 @@
 // @author       Browndy
 // @match        https://*.die-staemme.de/game.php?*&screen=map*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=die-staemme.de
-// @updateURL    https://browndy.github.io/DieStämme-Stuff/TW%20Line%20Drawer/TWLineDrawer.user.js
-// @downloadURL  https://browndy.github.io/DieStämme-Stuff/TW%20Line%20Drawer/TWLineDrawer.user.js
 // @grant        none
 // ==/UserScript==
 
@@ -23,7 +21,7 @@
 	// enable label mode
 	win.TWLD_enableLabelModeHotkey = "r";
 	// enable delete mode
-	win.TWLD_enableDeleteMode = "t";
+	win.TWLD_enableDeleteModeHotkey = "t";
 	// adds the drawn line to the selected group
 	win.TWLD_addLineHotkey = "w";
 	// removes the last coordinates pair
