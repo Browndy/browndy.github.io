@@ -8,7 +8,7 @@
 	// enable label mode
 	const enableLabelModeHotkey = win.TWLD_enableLabelModeHotkey || "r";
 	// enable delete mode
-	const enableDeleteMode = win.TWLD_enableDeleteMode || "t";
+	const enableDeleteModeHotkey = win.TWLD_enableDeleteModeHotkey || "t";
 	// adds the drawn line to the selected group
 	const addLineHotkey = win.TWLD_addLineHotkey || "w";
 	// removes the last coordinates pair
@@ -992,6 +992,28 @@
 											</div>
 										</td>
 									</tr>
+									<tr>
+										<td colspan="2">
+											<hr>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<h5 id="hotkey_toggle" class="popup_options_toggler" style="margin:0px;">
+												Hotkeys
+												<img id="hotkey_toggle_icon" class="popup_options_toggler" src="https://dsde.innogamescdn.com/asset/2871a0d9/graphic//icons/slide_down.png" style="float:right;">
+											</h5>
+										</td>
+									</tr>
+									<tr id="hotkey_row" style="display: none">
+										<td>
+											<input id="line_mode_btn" type="button" class="btn" style="margin: 2px" value="line m. (${enableLineModeHotkey})">
+											<input id="label_mode_btn" type="button" class="btn" style="margin: 2px" value="label m. (${enableLabelModeHotkey})">
+											<input id="delete_mode_btn" type="button" class="btn" style="margin: 2px" value="delete m. (${enableDeleteModeHotkey})">
+											<input id="add_line_btn" type="button" class="btn" style="margin: 2px" value="add line (${addLineHotkey})">
+											<input id="undo_btn" type="button" class="btn" style="margin: 2px" value="undo (${undoCoordsHotkey})">
+										</td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -1014,6 +1036,41 @@
 				$("#line_drawer_settings").on("click", (event) => {
 					this.createSettingsPopup();
 					return false;
+				});
+				
+				$("#hotkey_toggle").on("click", (event) => {
+					if ($("#hotkey_toggle_icon").attr("src").includes("up")) {
+						$("#hotkey_toggle_icon").attr("src", $("#hotkey_toggle_icon").attr("src").replace("up", "down"));
+						$("#hotkey_row").css("display", "none");
+					} else if ($("#hotkey_toggle_icon").attr("src").includes("down")) {
+						$("#hotkey_toggle_icon").attr("src", $("#hotkey_toggle_icon").attr("src").replace("down", "up"));
+						$("#hotkey_row").css("display", "block");
+					};
+				});
+				
+				$("#line_mode_btn").on("click", (event) => {
+					this.parent.setMode("line");
+					UI.InfoMessage("line mode");
+				});
+				
+				$("#label_mode_btn").on("click", (event) => {
+					this.parent.setMode("label");
+					UI.InfoMessage("label mode");
+				});
+				
+				$("#delete_mode_btn").on("click", (event) => {
+					this.parent.setMode("delete");
+					UI.InfoMessage("delete mode");
+				});
+				
+				$("#add_line_btn").on("click", (event) => {
+					this.parent.addLine();
+					UI.InfoMessage("added line");
+				});
+				
+				$("#undo_btn").on("click", (event) => {
+					this.parent.undoCoords();
+					UI.InfoMessage("undo");
 				});
 			},
 			
@@ -1652,18 +1709,23 @@
 			switch (String.fromCharCode(e.which)) {
 				case addLineHotkey:
 					TWLineDrawer.addLine();
+					UI.InfoMessage("add line");
 					break;
 				case undoCoordsHotkey:
 					TWLineDrawer.undoCoords();
+					UI.InfoMessage("undo");
 					break;
 				case enableLineModeHotkey:
 					TWLineDrawer.setMode("line");
+					UI.InfoMessage("line mode");
 					break;
 				case enableLabelModeHotkey:
 					TWLineDrawer.setMode("label");
+					UI.InfoMessage("label mode");
 					break;
-				case enableDeleteMode:
+				case enableDeleteModeHotkey:
 					TWLineDrawer.setMode("delete");
+					UI.InfoMessage("delete mode");
 					break;
 				case enableScriptHotkey:
 					TWLineDrawer.enableScript();
@@ -1673,13 +1735,3 @@
 	
 	TWLineDrawer.init();
 })();
-
-
-
-
-
-
-
-
-
-
