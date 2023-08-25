@@ -970,7 +970,7 @@
 			createUiElement: function() {
 				const elem = $(`
 					<div id="line_drawer" class="popup_style ui-draggable"
-						style="display: block; top: 40%; left: 68%; position: fixed; width: min-content; min-width: 350px">
+						style="z-index: 11111; display: block; top: 40%; left: 68%; position: fixed; width: min-content; min-width: 350px">
 						<div class="popup_menu ui-draggable-handle">
 							<p style="display: inline;">Line Drawer</p><a id="closelink_line_drawer" href="#">X</a>
 						</div>
