@@ -30,7 +30,7 @@
 	const data = win.TWLD_data || [
 		//[world, link]
 		//["de197", "https://google.de"]
-		//["de216", "https://browndy.github.io/DieStämme-Stuff/TW%20Line%20Drawer/Test/test.js"],
+		["de216", "https://browndy.github.io/DieStämme-Stuff/TW%20Line%20Drawer/Test/test.js"],
 		[],
 	];
 	
@@ -440,17 +440,17 @@
 		
 		// sets the map scale
 		rescaleMap: function(scale, first) {
-			let c = Math.round(Math.sqrt(this.continents) * 50);
+			let c = Math.round(Math.sqrt(continents) * 50);
 			let old = first ? 1 : this.scale;
 			let pos = window.location.hash.match(/^#([0-9]+);([0-9]+)$/);
 			this.scale = scale;
 			this.map.map.scale = [53 * scale, 38 * scale];
 			this.map.tileSize = [53 * scale, 38 * scale];
 			this.map.map.bias = 26500 * scale;
-			for (let i = 500 - c; i < 500 + c; i++)
+			for (let i = (500 - c); i < (500 + c); i++)
 				TWMap._coord_el_y_active[i] || (TWMap._coord_el_y_active[i] = !0,
 				TWMap.map_el_coordy.appendChild(TWMap._coord_el_y[i]));
-			for (let i = 500 - c; i < 500 + c; i++)
+			for (let i = (500 - c); i < (500 + c); i++)
 				TWMap._coord_el_x_active[i] || (TWMap._coord_el_x_active[i] = !0,
 				TWMap.map_el_coordx.appendChild(TWMap._coord_el_x[i]));
 			/*$.each(TWMap._coord_el_y, function() { 
