@@ -43,7 +43,7 @@
 	win.TWLD_data = [
 		//[world, link]
 		//["de197", "https://google.de"]
-		["de216", "https://browndy.github.io/DieStämme-Stuff/TW%20Line%20Drawer/Test/test.js"],
+		//["de216", "https://browndy.github.io/DieStämme-Stuff/TW%20Line%20Drawer/Test/test.js"],
 		[],
 	];
 
