@@ -9,13 +9,15 @@
 	const enableLabelModeHotkey = win.TWLD_enableLabelModeHotkey || "r";
 	// enable delete mode
 	const enableDeleteModeHotkey = win.TWLD_enableDeleteModeHotkey || "t";
+	// enable select mode
+	const enableSelectModeHotkey = win.TWLD_enableSelectModeHotkey || "u";
 	// adds the drawn line to the selected group
 	const addLineHotkey = win.TWLD_addLineHotkey || "w";
 	// removes the last coordinates pair
 	const undoCoordsHotkey = win.TWLD_undoCoordsHotkey || "e";
 	
 	// set language
-	const lang = win.TWLD_lang || "de";
+	const lang = win.TWLD_lang || "en";
 	
 	// set default map scale
 	const scale = win.TWLD_scale || 1;
@@ -24,7 +26,10 @@
 	const enableZoom = win.TWLD_enableZoom || false;
 	
 	// how many continents are populated? (needed for coord wrap)
-	const continents = win.TWLD_continents || 16
+	const continents = win.TWLD_continents || 16;
+	
+	// use DSSelect for selecting villages?
+	const useDSSelect = win.TWLD_useDSSelect || false;
 	
 	// import data from website
 	const data = win.TWLD_data || [
@@ -66,6 +71,7 @@
 			
 			// set scale
 			this.scale = scale;
+			TWMap.scale = scale;
 			
 			// enables draw function
 			this.overrideSpawnSector();
@@ -79,6 +85,9 @@
 			// adds map scale chooser
 			this.addMapRescaleChooser(this.scale);
 			
+			// override map functions 
+			this.Override.override(this.map);
+			
 			// rescales map if scale not 1
 			scale != 1 && this.rescaleMap(this.scale, true)
 			
@@ -87,11 +96,17 @@
 				$("#map_wrap").on("mousewheel", (e) => { 
 					e.preventDefault(); 
 					if(e.originalEvent.deltaY > 0) {
-						TWLineDrawer.scale = Math.max(0.5, TWLineDrawer.scale -= 0.05);
-						TWLineDrawer.rescaleMap(TWLineDrawer.scale)
+						let scale = TWLineDrawer.scale;
+						scale = scale > 1 && Math.max(0.5, scale -= 0.1) || Math.max(0.5, scale -= 0.05);
+						scale = Math.round(scale * 100) / 100;
+						TWLineDrawer.rescaleMap(scale)
+						$("#map_scale_chooser").val(scale);
 					} else if(e.originalEvent.deltaY < 0) {
-						TWLineDrawer.scale = Math.min(1.5, TWLineDrawer.scale += 0.05);
-						TWLineDrawer.rescaleMap(TWLineDrawer.scale)
+						let scale = TWLineDrawer.scale;
+						scale = scale >= 1 && Math.min(1.5, scale += 0.1) || Math.min(1.5, scale += 0.05);
+						scale = Math.round(scale * 100) / 100;
+						TWLineDrawer.rescaleMap(scale)
+						$("#map_scale_chooser").val(scale);
 					};
 					return false;
 				});
@@ -156,7 +171,7 @@
 			
 			generateCommandIcons: function(e) {
 				var a = [];
-				var sc = TWLineDrawer.scale;
+				var sc = TWMap.scale
 				if (TWMap.commandIcons[e])
 					for (var t = TWMap.commandIcons[e], i = (t.length,
 					2 * (Math.max(2, t.length) - 2)), o = 14 - i, n = 0; n < t.length; n++) {
@@ -179,7 +194,7 @@
 				if (TWMap.minimap_only)
 					return [];
 				var a = []
-				, sc = TWLineDrawer.scale
+				, sc = TWMap.scale
 				, t = 0;
 				if (TWMap.villageIcons[e.id]) {
 					var i = TWMap.villageIcons[e.id];
@@ -255,7 +270,7 @@
 		
 			createVillageDot: function(e) {
 				var a = document.createElement("canvas");
-				var sc = TWLineDrawer.scale;
+				var sc = TWMap.scale
 				if (a.getContext) {
 					a.style.position = "absolute",
 					a.style.left = "0px",
@@ -289,7 +304,7 @@
 			},
 		
 			resize: function(e, a) {
-				var sc = TWLineDrawer.scale;
+				var sc = TWMap.scale
 				0 == e ? (dstWidth = $(window).width(),
 				dstHeight = Math.max(window.outerHeight, window.innerHeight),
 				TWMap.fullscreen || (dstWidth -= 100,
@@ -306,7 +321,7 @@
 		
 			_spawnSector: function(e, a) {
 				if (!TWMap.minimap_only) {
-					var sc = TWLineDrawer.scale;
+					var sc = TWMap.scale
 					var i = a.x - e.x
 					, t = i + TWMap.mapSubSectorSize
 					, p = a.y - e.y
@@ -377,7 +392,7 @@
 			},
 		
 			onResize: function(e, a) {
-				var sc = TWLineDrawer.scale;
+				var sc = TWMap.scale
 				TWMap.scaleMinimap(),
 				TWMap.size = TWMap.map.coordByPixel(e, a, !1),
 				TWMap.size = [Math.round(TWMap.size[0] * sc), Math.round(TWMap.size[1] * sc)],
@@ -444,6 +459,7 @@
 			let old = first ? 1 : this.scale;
 			let pos = window.location.hash.match(/^#([0-9]+);([0-9]+)$/);
 			this.scale = scale;
+			TWMap.scale = scale;
 			this.map.map.scale = [53 * scale, 38 * scale];
 			this.map.tileSize = [53 * scale, 38 * scale];
 			this.map.map.bias = 26500 * scale;
@@ -468,7 +484,6 @@
 				$(this).css("left", $(this).css("left").replace("px", "") / old * scale + "px");
 			});
 			$("#map_container").css("image-rendering", "pixelated");
-			this.Override.override(this.map);
 			this.map.minimap.resize();
 			this.map.map.reload();
 			null !== pos && this.map.map.centerPos(pos[1], pos[2]);
@@ -733,6 +748,8 @@
 				this.addLabel([x, y]);
 			} else if (this.mode == "delete") {
 				this.UI.removeAtCoords([x, y]);
+			} else if (this.mode == "select") {
+				this.UI.selectVillagesInCorridorOfCoord([x, y]);
 			};
 			return false;
 		},
@@ -761,6 +778,7 @@
 			lastSelected: [],
 			groups: new Map(),
 			lastId: 10000,
+			villages: [],
 			
 			// saves groups into local storage
 			saveData: function() {
@@ -800,6 +818,9 @@
 				save: "Save",
 				selectAll: "Select all",
 				settingsWindowExistsAlready: "Settings window already exists",
+				villages: "Villages",
+				copied: "Copied",
+				readIn: "Read in",
 				
 				
 				// language object for german
@@ -825,6 +846,9 @@
 					save: "Speichern",
 					selectAll: "Alle auswählen",
 					settingsWindowExistsAlready: "Einstellungsfenster existiert bereits",
+					villages: "Dörfer",
+					copied: "Kopiert",
+					readIn: "Eingelesen",
 				},
 			},
 					
@@ -871,7 +895,7 @@
 							<tbody>
 								<tr class="edit_row" style="">
 									<td colspan="2">
-										<textarea id="lines_${id}" placeholder="${this.lang.lines}" cols="60" rows="12" "></textarea>
+										<textarea id="lines_${id}" placeholder="${this.lang.lines}" cols="62" rows="12" "></textarea>
 									</td>
 								</tr>
 								<tr>
@@ -915,7 +939,7 @@
 								</tr>
 								<tr class="edit_row" style="">
 									<td colspan="2">
-										<textarea id="labels_${id}" placeholder="${this.lang.labels}" cols="60" rows="6" "></textarea>
+										<textarea id="labels_${id}" placeholder="${this.lang.labels}" cols="62" rows="6" "></textarea>
 									</td>
 								</tr>
 								<tr>
@@ -970,7 +994,7 @@
 			createUiElement: function() {
 				const elem = $(`
 					<div id="line_drawer" class="popup_style ui-draggable"
-						style="z-index: 11111; display: block; top: 40%; left: 68%; position: fixed; width: min-content; min-width: 350px">
+						style="z-index: 11111; display: block; top: 33%; left: 68%; position: fixed; width: min-content; min-width: 350px">
 						<div class="popup_menu ui-draggable-handle">
 							<p style="display: inline;">Line Drawer</p><a id="closelink_line_drawer" href="#">X</a>
 						</div>
@@ -1010,6 +1034,7 @@
 											<input id="line_mode_btn" type="button" class="btn" style="margin: 2px" value="line m. (${enableLineModeHotkey})">
 											<input id="label_mode_btn" type="button" class="btn" style="margin: 2px" value="label m. (${enableLabelModeHotkey})">
 											<input id="delete_mode_btn" type="button" class="btn" style="margin: 2px" value="delete m. (${enableDeleteModeHotkey})">
+											<input id="select_mode_btn" type="button" class="btn" style="margin: 2px" value="select m. (${enableSelectModeHotkey})">
 											<input id="add_line_btn" type="button" class="btn" style="margin: 2px" value="add line (${addLineHotkey})">
 											<input id="undo_btn" type="button" class="btn" style="margin: 2px" value="undo (${undoCoordsHotkey})">
 										</td>
@@ -1061,6 +1086,11 @@
 				$("#delete_mode_btn").on("click", (event) => {
 					this.parent.setMode("delete");
 					UI.InfoMessage("delete mode");
+				});
+				
+				$("#select_mode_btn").on("click", (event) => {
+					this.parent.setMode("select");
+					UI.InfoMessage("select mode");
 				});
 				
 				$("#add_line_btn").on("click", (event) => {
@@ -1225,6 +1255,7 @@
 					dummy.val(JSON.stringify(dummyArr)).select();
 					console.log(JSON.stringify(dummyArr, null, 4));
 					document.execCommand("copy");
+					UI.SuccessMessage(this.lang.copied);
 					dummy.remove();
 				});
 				
@@ -1246,6 +1277,7 @@
 								}
 								
 								this.saveData();
+								UI.SuccessMessage(this.lang.readIn);
 							} catch (error) {
 								console.log("Error while importing", error.message);
 								UI.ErrorMessage(error);
@@ -1665,6 +1697,9 @@
 				
 				// load groups data
 				this.groups = this.parent.groups;
+			
+				// get village data from server
+				this.getVillages();
 				
 				// create the UI element
 				this.createUiElement();
@@ -1700,6 +1735,293 @@
 					$("#line_drawer > div.popup_menu.ui-draggable-handle > p").text(title);
 				};
 			},
+		
+			// gets village data from server
+			getVillages: function(poly) {
+				let currentTime = Date.parse(new Date());
+				let villageData;
+				let villagesString = `TWLD_Villages_${this.parent.world}`;
+				let lastGetString = `TWLD_LastGet_${this.parent.world}`;
+				// check if item exists
+				if (localStorage.getItem(villagesString)) {
+					let lastGet = localStorage.getItem(lastGetString);
+					// check if 1 hour has passed since last request
+					if (currentTime > parseInt(lastGet) + 60 * 60 * 24 * 1000) {
+						$.get("map/village.txt", (data) => {
+							console.log("hour passed");
+							villageData = data;
+							localStorage.setItem(lastGetString, Date.parse(new Date()));
+							localStorage.setItem(villagesString, data);
+						})
+						.done(() => {
+							this.getVillagesFromVillageData(villageData);
+						});
+					}
+					else {
+						console.log("old data");
+						let villageData = localStorage.getItem(villagesString);
+						this.getVillagesFromVillageData(villageData);
+					};
+				} else {
+					$.get("map/village.txt", (data) => {
+						villageData = data;
+						localStorage.setItem(lastGetString, Date.parse(new Date()));
+						localStorage.setItem(villagesString, data);
+			
+					})
+					.done(() => {
+						console.log("first");
+						this.getVillagesFromVillageData(villageData);
+					});
+				};
+			},
+			
+			// extracts villages from village data
+			getVillagesFromVillageData: function(villageData) {
+				let villages = villageData.split("\n");
+				// clean villages
+				this.villages = [];
+				// fill villages
+				for (let village of villages) {
+					this.villages.push(village.split(",").slice(2,4).map(Number));
+				};
+			},
+						
+			// object that handels calculations
+			Math: {
+				getVillagesInCorridor: function(poly, villages) {
+					let villagesFound = [];
+					for (let village of villages) {
+						if (this.checkInside(poly, poly.length, village)) {
+							villagesFound.push(village);
+						};
+					};
+					return villagesFound;
+				},
+				
+				getCorridorPoly: function(coord, lines) {
+					let first = [1000000, []];
+					let second = [1000000, []];
+					for (let line of lines) {
+						if (!line.length) return;
+						line = line[0];
+						let distance = 1000000;
+						for (let i = 0; i < line.length - 1; i++) {
+							let distanceSeg = this.getDistanceToLine(coord, [line[i], line[i + 1]]);
+							if (distanceSeg < distance) distance = distanceSeg;
+						};
+						if (distance < first[0]) {
+							second[0] = first[0];
+							second[1] = first[1]; 
+							first[0] = distance;
+							first[1] = line;
+						} else if (distance < second[0]) {
+							second[0] = distance; 
+							second[1] = line;
+						};
+					};
+					// check if nearest line is poly
+					if (this.isPoly([...first[1]])) {
+						return [...first[1]];
+					} else if (lines.length < 2) {
+						return;
+					}
+					let dis1 = this.getDistanceBetweenCoords(first[1][1], second[1][0]);
+					let dis2 = this.getDistanceBetweenCoords(first[1][1], second[1][1]);
+					if (dis1 < dis2) {
+						return [...first[1], ...second[1]];
+					} else if (dis2 < dis1) {
+						return [...first[1], ...second[1].reverse()];
+					};
+					return;
+				},
+				
+				isPoly: function(line) {
+					let counter = 0;	
+					let hash = {};
+
+					line.forEach((el) => (hash.hasOwnProperty(el) && counter++) || (hash[(el)] = undefined));
+					
+					return counter == 1;
+				},
+				
+				getDistanceToLine: function(coord, line) {
+					let a = coord[0] - line[0][0];
+					let b = coord[1] - line[0][1];
+					let c = line[1][0] - line[0][0];
+					let d = line[1][1] - line[0][1];
+					
+					let dot = a * c + b * d;
+					let segmentLengthSquared = c * c + d * d;
+					let param = (segmentLengthSquared === 0 ? -1 : dot / segmentLengthSquared);
+					
+					let closestSegmentPointX;
+					let closestSegmentPointY;
+					
+					// the closest point is the end node at x1, y1
+					if (param < 0) {
+						closestSegmentPointX = line[0][0];
+						closestSegmentPointY = line[0][1];
+					}
+					// the closest point is the end node at x2, y2
+					else if (param > 1) {
+						closestSegmentPointX = line[1][0];
+						closestSegmentPointY = line[1][1];
+					}
+					// the closest point is located inside the segment
+					else {
+						closestSegmentPointX = line[0][0] + param * c;
+						closestSegmentPointY = line[0][1] + param * d;
+					}
+					
+					return (this.getDistanceBetweenCoords([closestSegmentPointX, closestSegmentPointY], coord))
+				},
+				
+				getDistanceBetweenCoords: function(coord1, coord2) {
+					return Math.sqrt(Math.pow(coord2[0] - coord1[0], 2) + Math.pow(coord2[1] - coord1[1], 2));
+				},				
+				
+				onLine: function (l1, p) {
+					// Check whether p is on the line or not
+					if (p[0] <= Math.max(l1[0][0], l1[1][0])
+						&& p[0] >= Math.min(l1[0][0], l1[1][0])
+						&& (p[1]<= Math.max(l1[0][1], l1[1][1])
+							&& p[1] >= Math.min(l1[0][1], l1[1][1])))
+						return true;
+				
+					return false;
+				},
+	
+				direction: function(a, b, c) {
+					let val = (b[1] - a[1]) * (c[0] - b[0])
+							- (b[0]- a[0]) * (c[1] - b[1]);
+				
+					if (val == 0)
+				
+						// Collinear
+						return 0;
+				
+					else if (val < 0)
+				
+						// Anti-clockwise direction
+						return 2;
+				
+					// Clockwise direction
+					return 1;
+				},
+	
+				isIntersect: function(l1, l2) {
+					// Four direction for two lines and points of other line
+					let dir1 = this.direction(l1[0], l1[1], l2[0]);
+					let dir2 = this.direction(l1[0], l1[1], l2[1]);
+					let dir3 = this.direction(l2[0], l2[1], l1[0]);
+					let dir4 = this.direction(l2[0], l2[1], l1[1]);
+				
+					// When intersecting
+					if (dir1 != dir2 && dir3 != dir4)
+						return true;
+				
+					// When p2 of line2 are on the line1
+					if (dir1 == 0 && this.onLine(l1, l2[0]))
+						return true;
+				
+					// When p1 of line2 are on the line1
+					if (dir2 == 0 && this.onLine(l1, l2[1]))
+						return true;
+				
+					// When p2 of line1 are on the line2
+					if (dir3 == 0 && this.onLine(l2, l1[0]))
+						return true;
+				
+					// When p1 of line1 are on the line2
+					if (dir4 == 0 && this.onLine(l2, l1[1]))
+						return true;
+				
+					return false;
+				},
+				
+				checkInside: function(poly, n, p) {
+				
+					// When polygon has less than 3 edge, it is not polygon
+					if (n < 3)
+						return false;
+				
+					// Create a point at infinity, y is same as point p
+					let tmp= [999999, p[1]];
+					let exline = [p, tmp];
+					let count = 0;
+					let i = 0;
+					do {
+				
+						// Forming a line from two consecutive points of
+						// poly
+						let side = [ poly[i], poly[(i + 1) % n] ];
+						if (this.isIntersect(side, exline)) {
+				
+							// If side is intersects exline
+							if (this.direction(side[0], p, side[1]) == 0)
+								return this.onLine(side, p);
+							count++;
+						}
+						i = (i + 1) % n;
+					} while (i != 0);
+				
+					// When count is odd
+					return count & 1;
+				},
+			},
+						
+			// get villages in corridor
+			selectVillagesInCorridorOfCoord: function(coord) {
+				let lines = (this.groups.get(this.selected)).lines;
+				let xSc = this.parent.map.map.scale[0];
+				let ySc = this.parent.map.map.scale[1];
+				let coordPix = [coord[0] * xSc, coord[1] * ySc];
+				let linesPix = [];
+				for (let i = 0; i < lines.length; i++) {
+					let line = [];
+					for (let j = 0; j < lines[i][0].length; j++) {
+						let lineSegment = [Math.round(lines[i][0][j][0] * xSc - 0.5 * xSc), Math.round(lines[i][0][j][1] * ySc - 0.5 * ySc)];
+						line.push(lineSegment);
+					};
+					linesPix.push([line]);
+				};
+				let villagesPix = [];
+				for (let i = 0; i < this.villages.length; i++) {
+					if (!this.villages[i][0]) break;
+					villagesPix.push([this.villages[i][0] * xSc, this.villages[i][1] * ySc]);
+				};
+				let poly = this.Math.getCorridorPoly(coordPix, linesPix);
+				if (!poly) return;
+				let villagesFound = this.Math.getVillagesInCorridor(poly, villagesPix);
+				let villagesText = "";
+				let counter = 0;
+				for (let village of villagesFound) {
+					villagesText += `${counter}. ${village[0] / xSc}|${village[1] / ySc}\n`
+					if (counter > 0 && counter % 5 == 0) villagesText += "\n";
+					counter++;
+				};
+				
+				// select in "DSSelect" Script
+				if (useDSSelect && typeof DSSelectVillages !== "undefined") {
+					DSSelectVillages.enabled || DSSelectVillages.enableScript(); 
+					$("#bb_main_div #insert_text").val(villagesText);
+					$("#bb_main_div #insert").click();
+				} else {
+					let elem = `
+						<tr class="edit_row">
+							<td colspan="2">
+								<textarea placeholder="${this.lang.villages}" cols="15" rows="20" style="text-align: center"></textarea>
+							</td>
+						</tr>
+					`;
+					UI.AjaxPopup(null, "TWLD_Select", elem, "Select", null, { dataType: "prerendered" }, "min-content", "auto", "auto");
+					$("#TWLD_Select_content > tr > td > textarea").val(villagesText);
+					$("#TWLD_Select_content > tr > td > textarea").select();
+					document.execCommand("copy");
+					UI.SuccessMessage(this.lang.copied);
+				};
+			},
 		},
 	};
 	
@@ -1726,6 +2048,10 @@
 				case enableDeleteModeHotkey:
 					TWLineDrawer.setMode("delete");
 					UI.InfoMessage("delete mode");
+					break;
+				case enableSelectModeHotkey:
+					TWLineDrawer.setMode("select");
+					UI.InfoMessage("select mode");
 					break;
 				case enableScriptHotkey:
 					TWLineDrawer.enableScript();
