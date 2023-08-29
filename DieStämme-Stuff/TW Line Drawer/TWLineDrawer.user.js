@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  *
 // @author       Browndy
-// @match        https://*.die-staemme.de/game.php?*&screen=map*
+// @match        https://*.die-staemme.de/game.php?*screen=map*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=die-staemme.de
 // @grant        none
 // ==/UserScript==
