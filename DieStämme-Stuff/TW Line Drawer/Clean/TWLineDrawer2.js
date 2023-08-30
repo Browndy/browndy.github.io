@@ -1261,7 +1261,7 @@
 				
 				// import 
 				$("#line_drawer_settings_import").on("click", (event) => {
-					if (typeof navigator.clipboard !== "undefined") {
+					if (typeof navigator.clipboard.readText !== "undefined") {
 						navigator.clipboard.readText()
 							.then(text => {
 								try {
