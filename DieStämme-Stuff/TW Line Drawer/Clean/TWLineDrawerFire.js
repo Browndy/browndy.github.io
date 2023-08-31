@@ -1776,6 +1776,11 @@
 			};
 		});
 	})();
+
+	// reload map on document-idle
+	window.addEventListener ("load", function() {
+		TWMap.reload()
+	});
 	
 	TWLineDrawer.init();
 })();
