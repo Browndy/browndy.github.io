@@ -2047,7 +2047,7 @@
 				*/
 				let villagesFound = this.Math.getVillagesInCorridor(poly, villagesPix);
 				let villagesText = "";
-				let counter = 0;
+				let counter = 1;
 				for (let village of villagesFound) {
 					villagesText += `${counter}. ${village[0] / xSc}|${village[1] / ySc}\n`
 					if (counter > 0 && counter % 5 == 0) villagesText += "\n";
