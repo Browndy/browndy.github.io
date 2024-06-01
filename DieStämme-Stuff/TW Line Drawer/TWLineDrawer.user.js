@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         TW Line Drawer
 // @namespace    *
-// @version      1.0
+// @version      1.1
 // @description  *
 // @author       Browndy
 // @match        https://*.die-staemme.de/game.php?*screen=map*
+// @match        https://*.die-staemme.de/game.php?*screen=twld*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=die-staemme.de
 // @grant        none
 // ==/UserScript==
