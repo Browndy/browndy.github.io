@@ -15,7 +15,7 @@
 	const win = typeof unsafeWindow != 'undefined' ? unsafeWindow : window;
 
 	// show UI and enable line mode
-    const enableScriptHotkey = win.TWLD_enableScriptHotkey || "l";
+	const enableScriptHotkey = win.TWLD_enableScriptHotkey || "l";
     // enable line mode
     const enableLineModeHotkey = win.TWLD_enableLineModeHotkey || "q";
     // enable label mode
