@@ -32,7 +32,7 @@
 	const undoCoordsHotkey = win.TWLD_undoCoordsHotkey || "e";
 
 	// set language
-	const lang = win.TWLD_lang || "en";
+	const lang = win.TWLD_lang || "de";
 
 	// set default map scale
 	const scale = win.TWLD_scale || 1;
