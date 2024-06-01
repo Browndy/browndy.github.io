@@ -1,20 +1,19 @@
-// if clicked on forum link, save link and close window
-if (location.href.indexOf("screen=twld") > -1) {
-	const searchParams = new URLSearchParams(location.search);
-	if (searchParams.has("forum_id") && searchParams.has("thread_id")) {
-		var forum_id = searchParams.get("forum_id");
-		var thread_id = searchParams.get("thread_id");
-		localStorage.setItem("tw_line_drawer_forum_link_" + game_data.world + "_" + game_data.player.id, `/game.php?screen=forum&screenmode=view_thread&forum_id=${forum_id}&thread_id=${thread_id}`);
-		window.close();
-	} else {
-		UI.ErrorMessage("Wrong search parameters", 1000000);
-	};
-	return;
-}
-
-
 (function () {
 	const win = typeof unsafeWindow != 'undefined' ? unsafeWindow : window;
+
+	// if clicked on forum link, save link and close window
+	if (location.href.indexOf("screen=twld") > -1) {
+		const searchParams = new URLSearchParams(location.search);
+		if (searchParams.has("forum_id") && searchParams.has("thread_id")) {
+			var forum_id = searchParams.get("forum_id");
+			var thread_id = searchParams.get("thread_id");
+			localStorage.setItem("tw_line_drawer_forum_link_" + game_data.world + "_" + game_data.player.id, `/game.php?screen=forum&screenmode=view_thread&forum_id=${forum_id}&thread_id=${thread_id}`);
+			window.close();
+		} else {
+			UI.ErrorMessage("Wrong search parameters", 1000000);
+		};
+		return;
+	};
 
 	// show UI and enable line mode
 	const enableScriptHotkey = win.TWLD_enableScriptHotkey || "l";
