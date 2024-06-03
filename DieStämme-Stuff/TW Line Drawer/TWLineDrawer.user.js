@@ -52,5 +52,5 @@
 		[],
 	];
 
-	$.getScript("https://browndy.github.io/DieStämme-Stuff/TW%20Line%20Drawer/TWLineDrawer.js");
+	$.getScript("https://browndy.github.io/DieStämme-Stuff/TW%20Line%20Drawer/Clean/TWLineDrawer.js");
 })();
