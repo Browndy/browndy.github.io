@@ -39,7 +39,7 @@
 	win.TWLD_scale = 1;
 
 	// enables zooming for the map
-	win.TWLD_enableZoom = false;
+	win.TWLD_enableZoom = true;
 
 	// how many continents are populated? (needed for coord wrap)
 	win.TWLD_continents = 16;
