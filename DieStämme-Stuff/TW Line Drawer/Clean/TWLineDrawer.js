@@ -83,7 +83,7 @@
 
 			// reload map on document-idle
 			win.addEventListener ("load", function() {
-				map.reload();
+				TWMap.reload();
 			});
 
 			// set scale
