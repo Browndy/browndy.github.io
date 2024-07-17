@@ -81,6 +81,11 @@
 					break;
 			};
 
+			// reload map on document-idle
+			window.addEventListener ("load", function() {
+				map.reload();
+			});
+
 			// set scale
 			this.scale = scale;
 			TWMap.scale = scale;
