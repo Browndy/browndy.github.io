@@ -82,7 +82,7 @@
 			};
 
 			// reload map on document-idle
-			window.addEventListener ("load", function() {
+			win.addEventListener ("load", function() {
 				map.reload();
 			});
 
