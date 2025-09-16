@@ -45,9 +45,7 @@
 
 	// import data from website
 	const data = win.TWLD_data || [
-		// [world, link]
-		// ["de197", "https://google.de"]
-		// ["de226", "https://browndy.github.io/DieStämme-Stuff/TW%20Line%20Drawer/Test/test.js"],
+		// [world, link], 
 		[],
 	];
 
