@@ -44,8 +44,10 @@
 	const continents = win.TWLD_continents || 16;
 
 	// import data from website
+	// format:
+	// [world, link] 
+	// ["de244", "..."]
 	const data = win.TWLD_data || [
-		// [world, link], 
 		[],
 	];
 
