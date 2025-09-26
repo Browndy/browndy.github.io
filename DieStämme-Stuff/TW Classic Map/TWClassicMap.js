@@ -8,6 +8,8 @@ console.log("loading " + pack + " map");
 map.graphics = "https://raw.githubusercontent.com/Browndy/tw-style-packs/master/packs/" + pack + "/graphics/";
 map.graphics += map.night ? "n_" : "";
 
+map.reload();
+
 // document-idle
 window.addEventListener ("load", function() {
 	map.reload();
