@@ -1,3 +1,4 @@
+const win = typeof unsafeWindow != 'undefined' ? unsafeWindow : window;
 const map = win.TWMap;
 
 // classic, new, new_skins
