@@ -2050,7 +2050,7 @@ async function getResourcesForAM(map_farm_usage){
                 // console.log(list_template)
         
                 //special case if a village doesn't have farm to max lv then check if farm is >99% used and then request to build farm 1 lv
-                if(map_buildings.get(coord+"_farm")<30 && map_farm_usage.get(coord) >= farmCapacity){
+                /*if(map_buildings.get(coord+"_farm")<30 && map_farm_usage.get(coord) >= farmCapacity){
                     let lv_building_HQ=map_buildings.get(coord+"_main")
                     let lv_building_current=map_buildings.get(coord+"_farm")//curent building from building page
                     let obj_constants_buildings=map_constants_buildings.get("farm")
@@ -2069,7 +2069,7 @@ async function getResourcesForAM(map_farm_usage){
                         total_iron:total_iron,
                         time_finished:count_time_construction/3600
                     })
-                }
+                }*/
     
     
     
