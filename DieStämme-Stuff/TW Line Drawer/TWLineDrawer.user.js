@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TW Line Drawer
 // @namespace    *
-// @version      1.1
+// @version      1.2
 // @description  *
 // @author       Browndy
 // @match        https://*.die-staemme.de/game.php?*screen=map*
@@ -40,6 +40,8 @@
 
 	// enables zooming for the map
 	win.TWLD_enableZoom = true;
+	// only zoom while holding shift
+	win.TWLD_zoomOnShift = true;
 
 	// how many continents are populated? (needed for coord wrap)
 	win.TWLD_continents = 16;
