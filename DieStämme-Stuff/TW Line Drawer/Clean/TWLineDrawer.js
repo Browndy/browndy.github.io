@@ -39,6 +39,8 @@
 
 	// enables zooming for the map
 	const enableZoom = win.TWLD_enableZoom || false;
+	// only zoom while holding shift
+	const zoomOnShift = win.TWLD_zoomOnShift || false;
 
 	// how many continents are populated? (needed for coord wrap)
 	const continents = win.TWLD_continents || 16;
@@ -122,6 +124,10 @@
 			// adds scroll functionality to the map
 			if (enableZoom) {
 				$("#map_wrap").on("mousewheel", (e) => {
+					// check if zoom on shift is enabled and if shift is pressed
+					if (zoomOnShift && !e.shiftKey) {
+						return;
+					};
 					e.preventDefault();
 					if (e.originalEvent.deltaY > 0) {
 						let scale = TWLineDrawer.scale;
