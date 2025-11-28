@@ -360,7 +360,7 @@
 						, t = i + TWMap.mapSubSectorSize
 						, p = a.y - e.y
 						, s = p + TWMap.mapSubSectorSize;
-					(TWMap.church.displayed || TWMap.church.possible_displayed || TWMap.attackPlannerMode || TribalWars._settings.map_show_watchtower || TribalWars._settings.topo_show_relics) && MapCanvas.createCanvas(a, e),
+					(TWMap.church?.displayed || TWMap.church?.possible_displayed || TWMap.attackPlannerMode || TribalWars._settings?.map_show_watchtower || TribalWars._settings?.topo_show_relics) && MapCanvas.createCanvas(a, e),
 						a.dom_fragment = document.createDocumentFragment();
 					var o, n = this._createBorder(a.x % 100 == 0);
 					if ("map_con_border" == n.className ? n.style.width = "3px" : n.style.width = "1px",
