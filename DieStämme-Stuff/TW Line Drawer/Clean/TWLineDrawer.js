@@ -681,7 +681,9 @@
 				};
 			};
 			for (let label of data.labels) {
-				this.drawLabelOnMap(...label, data.labelsColor, data.labelsFontSize, data.labelsRoot, sector, canvas);
+				if (type == "map") {
+					this.drawLabelOnMap(...label, data.labelsColor, data.labelsFontSize, data.labelsRoot, sector, canvas);
+				};
 			};
 		},
 
