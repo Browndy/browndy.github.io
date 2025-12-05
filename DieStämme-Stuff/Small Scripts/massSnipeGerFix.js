@@ -1238,7 +1238,7 @@ window.twSDK = {
     getTimeFromString: function (timeLand) {
         // if market is "de" use different function
         if (window.game_data && game_data.market === 'de') {
-            return newGetTimeFromString(timeLand);
+            return this.newGetTimeFromString(timeLand);
         }
     
         let dateLand = '';
