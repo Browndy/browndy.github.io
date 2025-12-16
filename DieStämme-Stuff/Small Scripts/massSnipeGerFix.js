@@ -1346,7 +1346,7 @@ window.twSDK = {
 
         let laterDatePattern = new RegExp(
             TIME_PATTERNS.later
-                .replace('%1', '(\\d{1,2}[\\.\\/]\\d{1,2})')
+                .replace('%1', '(\\d{1,2}[\\.\\/]\\d{1,2}[\\.\\/])')
                 .replace('%2', '(.*)')
         ).exec(timeLand);
 
