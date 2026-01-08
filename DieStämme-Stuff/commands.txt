@@ -5,9 +5,8 @@
     "coordinates": "479|458",
     "villageID": "3156",
     "type": "attack_small.webp",
-    "arrivalTime": "09:18:05",
-    "totalUnits": 14,
-    "troops": null
+    "arrivalTime": "09:18:05", 
+	"totalUnits": 9102,	"troops":[{"unit":"axe","count":6237},{"unit":"spy","count":5},{"unit":"light","count":2510},{"unit":"ram","count":350}]},{"playerID":"1577497215","coordinates":"470|457","villageID":"3112","type":"return_attack_small.webp","arrivalTime":"11:03:53","totalUnits":121,"troops":[{"unit":"spy","count":1},{"unit":"light","count":60},{"unit":"catapult","count":60}],"catapultTarget":"60:32:21"}
   },
   {
 	"commandID": "1538616570",
