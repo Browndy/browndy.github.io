@@ -19,7 +19,7 @@
     "type": "attack",
     "arrival": "1768120155",
     "units": { "axe": 6000, "light": 2800, "ram": 350, "catapult": 50 },
-	"catapult_taret": "farm"
+	"catapult_target": "farm"
   },
   {
     "id": "1100312755",
@@ -71,5 +71,6 @@
     "units": { "light": 500 }
   }
 ]
+
 
 
