@@ -4,8 +4,7 @@
     "target_village": "3016",
     "type": "attack",
     "arrival": "1768117756",
-    "units": { "axe": 5000, "light": 2500, "ram": 300 },
-	"catapult_taret": "farm"
+    "units": { "axe": 5000, "light": 2500, "ram": 300 }
   },
   {
     "id": "153219841",
@@ -19,7 +18,8 @@
     "target_village": "3016",
     "type": "attack",
     "arrival": "1768120155",
-    "units": { "axe": 6000, "light": 2800, "ram": 350, "catapult": 50 }
+    "units": { "axe": 6000, "light": 2800, "ram": 350, "catapult": 50 },
+	"catapult_taret": "farm"
   },
   {
     "id": "1100312755",
@@ -71,3 +71,4 @@
     "units": { "light": 500 }
   }
 ]
+
