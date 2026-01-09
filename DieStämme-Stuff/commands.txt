@@ -1,86 +1,73 @@
 [
   {
-	"commandID": "2087266643",
-    "playerID": "1576962937",
-    "coordinates": "479|458",
-    "villageID": "3156",
-    "type": "attack_small.webp",
-	"arrivalTime": "09:18:05", 
-	"totalUnits": 9102,	"troops":[{"unit":"axe","count":6237},{"unit":"spy","count":5},{"unit":"light","count":2510},{"unit":"ram","count":350}]},{"playerID":"1577497215","coordinates":"470|457","villageID":"3112","type":"return_attack_small.webp","arrivalTime":"11:03:53","totalUnits":121,"troops":[{"unit":"spy","count":1},{"unit":"light","count":60},{"unit":"catapult","count":60}],
-	"catapultTarget":"60:32:21"
+    "id": "2034454874",
+    "target_village": "3016",
+    "type": "attack",
+    "arrival": "1768117756",
+    "units": { "axe": 5000, "light": 2500, "ram": 300 },
+	"catapult_taret": "farm"
   },
   {
-	"commandID": "1538616570",
-    "playerID": "1576969873",
-    "coordinates": "479|458",
-    "villageID": "3156",
-    "type": "attack_small.webp",
-    "arrivalTime": "11:18:26",
-    "totalUnits": 14,
-    "troops": null
+    "id": "153219841",
+    "target_village": "3016",
+    "type": "attack",
+    "arrival": "1768118608",
+    "units": { "axe": 100, "spy": 1, "ram": 1 }
   },
   {
-    "playerID": "1577305061",
-    "coordinates": "479|458",
-    "villageID": "3156",
-    "type": "attack_small.webp",
-    "arrivalTime": "12:19:37",
-    "totalUnits": 28,
-    "troops": null
+    "id": "450431968",
+    "target_village": "3016",
+    "type": "attack",
+    "arrival": "1768120155",
+    "units": { "axe": 6000, "light": 2800, "ram": 350, "catapult": 50 }
   },
   {
-    "playerID": "1577456675",
-    "coordinates": "479|458",
-    "villageID": "3156",
-    "type": "attack_small.webp",
-    "arrivalTime": "13:35:05",
-    "totalUnits": 13,
-    "troops": null
+    "id": "1100312755",
+    "target_village": "3016",
+    "type": "attack",
+    "arrival": "1768120202",
+    "units": { "axe": 50, "spy": 5, "ram": 5, "snob": 1 }
   },
   {
-    "playerID": "9034836",
-    "coordinates": "479|458",
-    "villageID": "3156",
-    "type": "attack_small.webp",
-    "arrivalTime": "16:20:27",
-    "totalUnits": 21,
-    "troops": null
+    "id": "1327656839",
+    "target_village": "3016",
+    "type": "attack",
+    "arrival": "1768121638",
+    "units": { "axe": 4500, "light": 2000, "marcher": 500, "ram": 250 }
   },
   {
-    "playerID": "1577467495",
-    "coordinates": "479|458",
-    "villageID": "3156",
-    "type": "attack_small.webp",
-    "arrivalTime": "16:38:44",
-    "totalUnits": 13,
-    "troops": null
+    "id": "990001",
+    "target_village": "3660",
+    "type": "attack",
+    "arrival": "1768130000",
+    "units": { "axe": 100, "spy": 1 }
   },
   {
-    "playerID": "9034836",
-    "coordinates": "479|458",
-    "villageID": "3156",
-    "type": "attack_small.webp",
-    "arrivalTime": "17:15:41",
-    "totalUnits": 21,
-    "troops": null
+    "id": "990002",
+    "target_village": "3660",
+    "type": "support",
+    "arrival": "1768155000",
+    "units": { "spear": 5000, "sword": 5000, "heavy": 200 }
   },
   {
-    "playerID": "1577184564",
-    "coordinates": "479|458",
-    "villageID": "3156",
-    "type": "attack_small.webp",
-    "arrivalTime": "20:34:24",
-    "totalUnits": 14,
-    "troops": null
+    "id": "990003",
+    "target_village": "3660",
+    "type": "attack",
+    "arrival": "1768200000",
+    "units": { "axe": 6500, "light": 3000, "ram": 400, "snob": 1 }
   },
   {
-    "playerID": "1577456675",
-    "coordinates": "479|458",
-    "villageID": "3156",
-    "type": "attack_small.webp",
-    "arrivalTime": "22:47:14",
-    "totalUnits": 14,
-    "troops": null
+    "id": "990004",
+    "target_village": "3660",
+    "type": "snob",
+    "arrival": "1768200005",
+    "units": { "axe": 100, "snob": 1 }
+  },
+  {
+    "id": "990005",
+    "target_village": "3660",
+    "type": "return",
+    "arrival": "1768350000",
+    "units": { "light": 500 }
   }
 ]
-
