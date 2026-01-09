@@ -59,7 +59,7 @@
   {
     "id": "990004",
     "target_village": "3660",
-    "type": "snob",
+    "type": "attack",
     "arrival": "1768200005",
     "units": { "axe": 100, "snob": 1 }
   },
@@ -71,4 +71,5 @@
     "units": { "light": 500 }
   }
 ]
+
 
